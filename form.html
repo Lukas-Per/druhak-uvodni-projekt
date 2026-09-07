@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="node_modules/tom-select/dist/css/tom-select.css">
+    <script src="node_modules/tom-select/dist/js/tom-select.complete.min.js"></script>
+
+    <script src="node_modules/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+        <div class="container-fluid">
+
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+                aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home
+                            <span class="visually-hidden">(current)</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="project-progress.html">Vývoj projektu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="form.html">Formulář</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="true" aria-expanded="false">Obrázky</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="fourth.html">Carousel</a>
+                            <a class="dropdown-item" href="fifth.html">Karty</a>
+
+
+                        </div>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-sm-2" type="search" placeholder="Search">
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+
+
+        <h1>Formulář</h1>
+        <form class="needs-validation" method="post">
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" name="name" id="name" placeholder="Jméno" required>
+                <label for="name">Jméno</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" name="surname" id="surname" placeholder="Přijmení" required>
+                <label for="surname">Přijmení</label>
+            </div>
+            <div class="mb-3 form-floating">
+                <input type="date" class="form-control" name="date" id="date" placeholder="date" required>
+                <label for="date">Datum</label>
+            </div>
+            <div class="mb-3 form-floating">
+                <input type="file" class="form-control" id="file" name="file" placeholder="file" required>
+                <label for="file">Soubor</label>
+            </div>
+            <div class="mb-3">
+                <label for="select-state">Vyberte</label>
+                <select id="select-state" class="form-control" name="state[]" multiple placeholder="Select a state..."
+                    autocomplete="off">
+                    <option value="" disabled selected>Select a state...</option>
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+
+                </select>
+
+
+            </div>
+
+            <div class="mb-3 form-floating">
+
+                <select class="form-select" id="krajSelect" required>
+                    <option value="" disabled selected>Vyberte kraj...</option>
+                    <option value="hlavni-mesto-praha">Hlavní město Praha</option>
+                    <option value="stredocesky">Středočeský kraj</option>
+                    <option value="jihocesky">Jihočeský kraj</option>
+                    <option value="plzensky">Plzeňský kraj</option>
+                    <option value="karlovarsky">Karlovarský kraj</option>
+                    <option value="ustecky">Ústecký kraj</option>
+                    <option value="liberecky">Liberecký kraj</option>
+                    <option value="kralovehradecky">Královéhradecký kraj</option>
+                    <option value="pardubicky">Pardubický kraj</option>
+                    <option value="vysocina">Kraj Vysočina</option>
+                    <option value="jihomoravsky">Jihomoravský kraj</option>
+                    <option value="olomoucky">Olomoucký kraj</option>
+                    <option value="zlinksy">Zlínský kraj</option>
+                    <option value="moravskoslezsky">Moravskoslezský kraj</option>
+                </select>
+                <label for="krajSelect">Vyberte si oblíbené auto:</label>
+            </div>
+
+
+            <textarea id="default" required">Hello, World!</textarea>
+
+            <button type="submit" class="btn btn-primary">Odeslat a otestovat</button>
+
+
+            
+        </form>
+
+
+
+    </div>
+    <script>
+        var settings = {};
+        new TomSelect('#tom-select-it', settings);
+    </script>
+    <script>new TomSelect("#select-state", {
+            maxItems: 3
+        });
+    </script>
+
+    <script>
+        tinymce.init({
+            selector: '#default',
+            license_key: 'gpl', // Specifikace bezplatné GPL licence
+
+            // Lokální konfigurace cest (nutné pro správné načtení z node_modules)
+            suffix: '.min',
+            base_url: 'node_modules/tinymce',
+
+            // Odstranění tlačítka "Get all features" / "Upgrade"
+            promotion: false,
+
+            // Aktivace potřebných pluginů (tabulky, seznamy, obrázky)
+            plugins: 'table lists image',
+
+            // Nastavení lišty s nástroji (přesně podle požadavků)
+            toolbar: 'bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist | table | image',
+
+            // Konfigurace pro upload obrázků
+            image_title: true,
+            automatic_uploads: true,
+            // Cesta ke skriptu na vašem serveru, který obrázek zpracuje a uloží
+            images_upload_url: '/upload-handler.php',
+
+            // Alternativní možnost: Výběr lokálního souboru z disku přes dialogové okno
+            file_picker_types: 'image',
+            file_picker_callback: function (cb, value, meta) {
+                const input = document.createElement('input');
+                input.setAttribute('type', 'file');
+                input.setAttribute('accept', 'image/*');
+
+                input.addEventListener('change', (e) => {
+                    const file = e.target.files[0];
+                    const reader = new FileReader();
+
+                    reader.addEventListener('load', () => {
+                        const id = 'blobid' + (new Date()).getTime();
+                        const blobCache = tinymce.activeEditor.editorUpload.blobCache;
+                        const base64 = reader.result.split(',')[1];
+                        const blobInfo = blobCache.create(id, file, base64);
+                        blobCache.add(blobInfo);
+
+                        cb(blobInfo.blobUri(), { title: file.name });
+                    });
+                    reader.readAsDataURL(file);
+                });
+
+                input.click();
+            },
+
+            // Nastavení výšky editoru
+            height: 400,
+            language: 'cs' // Volitelné: vyžaduje stažení češtiny do složky langs
+        });
+    </script>
+
+    <footer>
+        <div class="container-fluid bg-primary text-light text-center p-3 fixed-bottom">
+            <p class="mb-0">© 2026</p>
+            <a href="documentation.docx" target="_blank" class="text-light text-decoration-none fw-bold">
+                <i class="fa-solid fa-file-word"></i>Dokumentace
+            </a>
+
+        
+        </div>
+
+
+    </footer>
+
+
+
+
+    
+    
+</body>
+</html>
