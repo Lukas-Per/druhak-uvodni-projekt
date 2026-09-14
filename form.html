@@ -27,7 +27,6 @@
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav me-auto">
 
-
                     <li class="nav-item">
                         <a class="nav-link active fw-bold" href="index.html">
                             <h5>
@@ -50,16 +49,14 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="form.html">Formulář</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-                            aria-haspopup="true" aria-expanded="false">Obrázky</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="fourth.html">Carousel</a>
-                            <a class="dropdown-item" href="fifth.html">Karty</a>
 
 
-                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="carousel.html">Obrázky</a>
                     </li>
+
+
+                    
                 </ul>
                 <form class="d-flex">
                     <input class="form-control me-sm-2" type="search" placeholder="Search">
@@ -98,8 +95,13 @@
 
 
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" name="phone" id="phone" placeholder="Telefoní číslo" required>
+                <input type="number" class="form-control" name="phone" id="phone" placeholder="Telefoní číslo" required>
                 <label for="phone">Telefoní číslo</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" name="mail" id="mail" placeholder="Telefoní číslo" required>
+                <label for="mail">Email</label>
             </div>
 
 
@@ -135,9 +137,14 @@
                 <select id="select-state" class="form-control" name="state[]" multiple placeholder="Vyberte destinace"
                     autocomplete="off" required>
                     <option value="" disabled selected>Vyberte destinace</option>
-                    <option value="AL">Alabama</option>
-                    <option value="AK">Alaska</option>
-                    <option value="AZ">Arizona</option>
+                    <option value="kreta">Kréta</option>
+                    <option value="rim">Řím</option>
+                    <option value="londyn">Londýn</option>
+                    <option value="barcelona">Barcelona</option>
+                    <option value="istanbul">Istanbul</option>
+                    <option value="malta">Malta</option>
+                    <option value="pariz">Paříž</option>
+
 
                 </select>
 
