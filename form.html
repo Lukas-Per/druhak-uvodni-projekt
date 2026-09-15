@@ -54,6 +54,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="carousel.html">Obrázky</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pricing.html">Ceník</a>
+                    </li>
 
 
                     
@@ -68,7 +71,7 @@
     <div class="container mb-3">
 
 
-        <h1>Kontaktní formulář</h1>
+        <h1 class="text-center text-white bg-primary rounded py-3 px-4 my-4">Kontaktní formulář</h1>
         <form class="needs-validation" method="post">
 
 
@@ -110,14 +113,15 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="mb-3 form-floating">
-                        <input type="date" class="form-control" name="date" id="date" placeholder="date" required>
-                        <label for="date">Datum od</label>
+                        <input type="date" class="form-control" name="date_from" id="date-from" placeholder="date"
+                            required>
+                        <label for="date-from">Datum od</label>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="mb-3 form-floating">
-                        <input type="date" class="form-control" name="date" id="date" placeholder="date" required>
-                        <label for="date">Datum do</label>
+                        <input type="date" class="form-control" name="date_to" id="date-to" placeholder="date" required>
+                        <label for="date-to">Datum do</label>
                     </div>
                 </div>
 
@@ -132,11 +136,9 @@
 
 
 
-            <div class="mb-3">
-                <label for="select-state">Vyberte destinace</label>
-                <select id="select-state" class="form-control" name="state[]" multiple placeholder="Vyberte destinace"
-                    autocomplete="off" required>
-                    <option value="" disabled selected>Vyberte destinace</option>
+            <div class="form-floating mb-3">
+                <select id="destination" class="form-select" name="destination" required>
+                    <option value="" selected disabled>Vyberte destinaci...</option>
                     <option value="kreta">Kréta</option>
                     <option value="rim">Řím</option>
                     <option value="londyn">Londýn</option>
@@ -144,11 +146,28 @@
                     <option value="istanbul">Istanbul</option>
                     <option value="malta">Malta</option>
                     <option value="pariz">Paříž</option>
-
-
+                    <option value="santorini">Santorini</option>
+                    <option value="benatky">Benátky</option>
+                    <option value="praha">Praha</option>
+                    <option value="amsterdam">Amsterdam</option>
+                    <option value="dubrovnik">Dubrovník</option>
                 </select>
+                <label for="destination">Destinace</label>
+            </div>
 
-
+            <div class="mb-3">
+                <label for="select-trips">Vyberte doplňkové výlety</label>
+                <select id="select-trips" class="form-control" name="trips[]" multiple
+                    placeholder="Vyberte výlety..." autocomplete="off" required>
+                    <option value="" disabled>Vyberte výlety...</option>
+                    <option value="lod">Výlet lodí</option>
+                    <option value="muzeum">Prohlídka muzea / památek</option>
+                    <option value="vino">Ochutnávka vína</option>
+                    <option value="trekking">Trekking / pěší túra</option>
+                    <option value="plaz">Celodenní výlet na pláž</option>
+                    <option value="nocni">Noční prohlídka města</option>
+                    <option value="gastronomie">Gastronomická prohlídka</option>
+                </select>
             </div>
 
             <div class="mb-3">
@@ -174,11 +193,10 @@
 
     </div>
     <script>
-        var settings = {};
-        new TomSelect('#tom-select-it', settings);
-    </script>
-    <script>new TomSelect("#select-state", {
-            maxItems: 3
+        new TomSelect("#select-trips", {
+            maxItems: 5,
+            plugins: ["remove_button"],
+            placeholder: "Vyberte výlety..."
         });
     </script>
 
